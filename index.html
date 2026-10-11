@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A searchable music theory encyclopedia with clear explanations, musical examples, and related concepts.">
+  <title>Resonance — Music Theory Encyclopedia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Resonance home">
+      <span class="brand-mark" aria-hidden="true">𝄞</span>
+      <span><strong>RESONANCE</strong><small>THE MUSIC THEORY ENCYCLOPEDIA</small></span>
+    </a>
+    <nav class="topnav" aria-label="Main navigation">
+      <a href="#explore">Explore</a><a href="#featured">Featured</a><a href="#about">About</a>
+    </nav>
+    <a class="nav-cta" href="#explore">Browse topics <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> A LIVING REFERENCE FOR MUSICIANS</div>
+        <h1>Understand the<br>language of <em>music.</em></h1>
+        <p class="hero-subtitle">From the first note to the most intricate harmony, explore the ideas that shape how music works.</p>
+        <form class="search-box" id="search-form" role="search">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <label class="sr-only" for="search-input">Search music theory topics</label>
+          <input id="search-input" type="search" placeholder="Search a concept, term, or technique…" autocomplete="off">
+          <button type="submit">Search <span>↗</span></button>
+        </form>
+        <div class="popular-searches"><span>POPULAR:</span>
+          <button data-search="modes">Modes</button><i>·</i><button data-search="cadences">Cadences</button><i>·</i><button data-search="counterpoint">Counterpoint</button>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Decorative musical notation">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="staff-lines"><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="hero-clef">𝄞</div>
+        <div class="note note-a">♩</div><div class="note note-b">♪</div><div class="note note-c">♫</div>
+        <div class="art-caption"><span class="tiny-dot"></span> THEORY · LISTEN · DISCOVER</div>
+      </div>
+      <div class="hero-bottom"><span>01 / KNOWLEDGE</span><span>MADE FOR THE CURIOUS</span><span>SCROLL TO EXPLORE ↓</span></div>
+    </section>
+
+    <section class="section explore-section" id="explore">
+      <div class="section-heading">
+        <div><div class="eyebrow"><span class="eyebrow-line"></span> YOUR REFERENCE LIBRARY</div><h2>Explore the <em>foundations.</em></h2></div>
+        <p>Choose a field to begin, or search the library for a specific idea.</p>
+      </div>
+      <div class="category-grid" id="category-grid">
+        <button class="category-card active" data-category="All">
+          <span class="category-number">01</span><span class="category-icon">♬</span><strong>All topics</strong><small>Explore the full library</small><span class="card-arrow">↗</span>
+        </button>
+        <button class="category-card" data-category="Fundamentals">
+          <span class="category-number">02</span><span class="category-icon">𝄞</span><strong>Fundamentals</strong><small>Notes, rhythm & notation</small><span class="card-arrow">↗</span>
+        </button>
+        <button class="category-card" data-category="Scales & Modes">
+          <span class="category-number">03</span><span class="category-icon">♯</span><strong>Scales & modes</strong><small>Pitch collections & color</small><span class="card-arrow">↗</span>
+        </button>
+        <button class="category-card" data-category="Harmony">
+          <span class="category-number">04</span><span class="category-icon">◈</span><strong>Harmony</strong><small>Chords, function & cadence</small><span class="card-arrow">↗</span>
+        </button>
+        <button class="category-card" data-category="Rhythm">
+          <span class="category-number">05</span><span class="category-icon">◷</span><strong>Rhythm</strong><small>Meter, pulse & patterns</small><span class="card-arrow">↗</span>
+        </button>
+        <button class="category-card" data-category="Composition">
+          <span class="category-number">06</span><span class="category-icon">✳</span><strong>Composition</strong><small>Form, counterpoint & style</small><span class="card-arrow">↗</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="section library-section" id="library">
+      <div class="library-heading">
+        <div><div class="eyebrow"><span class="eyebrow-line"></span> THE ENCYCLOPEDIA</div><h2 id="library-title">The knowledge <em>library.</em></h2></div>
+        <div class="results-count" id="results-count">12 ARTICLES</div>
+      </div>
+      <div class="filter-row">
+        <div class="active-filter" id="active-filter">All topics</div>
+        <button id="clear-search" class="clear-search" hidden>Clear search ×</button>
+      </div>
+      <div class="article-grid" id="article-grid" aria-live="polite"></div>
+      <div class="empty-state" id="empty-state" hidden><span>⌕</span><h3>No matching topics</h3><p>Try another keyword or choose a different category.</p><button id="reset-library">Show all topics</button></div>
+    </section>
+
+    <section class="featured-section" id="featured">
+      <div class="featured-note">
+        <div class="eyebrow"><span class="eyebrow-line"></span> CONCEPT SPOTLIGHT</div>
+        <h2>Small details.<br><em>Big discoveries.</em></h2>
+        <p>Music theory isn't just a set of rules. It's a way to notice patterns, understand musical choices, and hear familiar sounds in a new way.</p>
+        <a href="#library" class="text-link">Explore the library <span>↗</span></a>
+      </div>
+      <div class="example-panel">
+        <div class="example-panel-top"><span>LISTEN WITH YOUR EYES</span><span class="live-dot"></span></div>
+        <h3>A major scale</h3>
+        <p>Seven notes arranged in a familiar whole-step and half-step pattern.</p>
+        <div class="piano" id="piano" aria-label="Illustration of a piano keyboard">
+          <div class="white-keys"><span data-note="C">C</span><span data-note="D">D</span><span data-note="E">E</span><span data-note="F">F</span><span data-note="G">G</span><span data-note="A">A</span><span data-note="B">B</span><span data-note="C5">C</span></div>
+          <div class="black-keys"><i style="left:9.1%"></i><i style="left:21.6%"></i><i style="left:46.6%"></i><i style="left:59.1%"></i><i style="left:71.6%"></i></div>
+        </div>
+        <div class="scale-notes"><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>A</span><span>B</span><span>C</span></div>
+        <button class="play-button" id="play-scale"><span class="play-symbol">▶</span><span id="play-label">Play scale example</span><span class="play-duration">8 NOTES</span></button>
+        <p class="audio-note" id="audio-status">Uses your browser's built-in audio; no sound file needed.</p>
+      </div>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="about-icon">𝄢</div>
+      <div><div class="eyebrow"><span class="eyebrow-line"></span> ABOUT RESONANCE</div><h2>Learn the idea.<br><em>Hear the difference.</em></h2></div>
+      <p>Resonance is a growing, student-friendly reference for music theory. Each entry connects a clear definition to examples and related concepts, helping you build understanding one idea at a time.</p>
+    </section>
+  </main>
+
+  <footer class="footer"><a class="footer-brand" href="#">RESONANCE <span>© 2026</span></a><span>Made for the love of understanding music.</span><a href="#top" id="back-to-top">BACK TO TOP ↑</a></footer>
+
+  <dialog id="article-dialog" class="article-dialog">
+    <button class="dialog-close" id="dialog-close" aria-label="Close article">×</button>
+    <div id="dialog-content"></div>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+</html>
